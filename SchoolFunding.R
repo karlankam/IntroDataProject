@@ -30,19 +30,95 @@ head(finance2)
 
 
 #Top and Bottom States - Total Revenue Per Student 1993-1997
-mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+mean_TotalRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
   dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
   dplyr::summarize(Mean = mean(TotalRevPer)) %>% dplyr::arrange(-Mean)
-head(mean_TotalFedRevPer,10)
-tail(mean_TotalFedRevPer,10)
+head(mean_TotalRevPer,10)
+tail(mean_TotalRevPer,10)
+
+#Mean Total Revenue per Student 1993-97
+mean_TotalRevPer %>% dplyr::summarize(Mean2 = mean(Mean))
 
 #Top and Bottom States - Total Revenue Per Student 2011-2015
-mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+mean_TotalRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
   dplyr::filter(YRDATA==2011 | YRDATA==2012 | YRDATA==2013 | YRDATA==2014 | YRDATA==2015) %>% 
   dplyr::summarize(Mean = mean(TotalRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalRevPer,10)
+tail(mean_TotalRevPer,10)
+
+#Mean Total Revenue per Student 2011-15
+mean_TotalRevPer %>% dplyr::summarize(Mean2 = mean(Mean))
+
+
+#Total Federal Revenue Per Student 1993-1997
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
+  dplyr::summarize(Mean = mean(TotalFedRevPer/TotalRevPer*100)) %>% dplyr::arrange(-Mean)
 head(mean_TotalFedRevPer,10)
 tail(mean_TotalFedRevPer,10)
 
+#Mean Total Revenue per Student 1993-97
+mean_TotalFedRevPer %>% dplyr::summarize(Mean2 = mean(Mean))
+
+
+
+
+********************* Testing below
+
+    
+  
+  
+  
+  
+#Top and Bottom States - Total Federal Revenue Per Student 1993-1997
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
+  dplyr::summarize(Mean = mean(TotalFedRevPer/TotalRevPer*100)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
+
+#Top and Bottom States - Total Federal Revenue Per Student 1993-1997
+finance2 %>% 
+  dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
+  dplyr::summarize(Mean = mean(TotalFedRevPer/TotalRevPer*100)) 
+
+
+************
+
+#Top and Bottom States - Total Federal Revenue Per Student 2011-2015
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==2011 | YRDATA==2012 | YRDATA==2013 | YRDATA==2014 | YRDATA==2015) %>% 
+  dplyr::summarize(Mean = mean(TotalFedRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
+
+#Top and Bottom States - Total State Revenue Per Student 1993-1997
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
+  dplyr::summarize(Mean = mean(TotalStateRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
+
+#Top and Bottom States - Total State Revenue Per Student 2011-2015
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==2011 | YRDATA==2012 | YRDATA==2013 | YRDATA==2014 | YRDATA==2015) %>% 
+  dplyr::summarize(Mean = mean(TotalStateRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
+
+#Top and Bottom States - Total Local Revenue Per Student 1993-1997
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==1993 | YRDATA==1994 | YRDATA==1995 | YRDATA==1996 | YRDATA==1997) %>% 
+  dplyr::summarize(Mean = mean(TotalLocalRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
+
+#Top and Bottom States - Total Local Revenue Per Student 2011-2015
+mean_TotalFedRevPer = finance2 %>% dplyr::group_by(STATE) %>% 
+  dplyr::filter(YRDATA==2011 | YRDATA==2012 | YRDATA==2013 | YRDATA==2014 | YRDATA==2015) %>% 
+  dplyr::summarize(Mean = mean(TotalLocalRevPer)) %>% dplyr::arrange(-Mean)
+head(mean_TotalFedRevPer,10)
+tail(mean_TotalFedRevPer,10)
 
 ##### Testing Below #####
 
